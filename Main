@@ -7,7 +7,6 @@ current_input = input("Input the text to convert to morse: \n\n")
 master_input = ""
 
 while current_input != "!!!!!" or current_input == "\n":
-    print("LOOP IS OPEN")
     master_input = master_input + current_input
     current_input = input("Input the text to convert to morse: \n\n")
 
