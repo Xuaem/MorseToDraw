@@ -7,6 +7,7 @@ current_input = input("Input the text to convert to morse: \n\n")
 master_input = ""
 
 while current_input != "!!!!!" or current_input == "\n":
+    print("LOOP IS OPEN")
     master_input = master_input + current_input
     current_input = input("Input the text to convert to morse: \n\n")
 
@@ -165,11 +166,14 @@ print("\n")
 #vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 morseCanvas = turtle.Screen()
 oogway = turtle.Turtle()
-morseCanvas.setup(width = 1000, height = 700)
+morseCanvas.setup(width = .99, height = .99)
+windowHeight = morseCanvas.window_height()
+windowWidth = morseCanvas.window_width()
+print(windowWidth)
 oogway.hideturtle()
 oogway.speed(0)
 oogway.penup()
-oogway.goto(-450,300)
+oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
 oogway.color("black")
 oogway.pendown()
 
@@ -181,9 +185,9 @@ for x in range(0, lngthMorse):
     rnum3long = random.randint(50,225)
     rnum4longdark = random.randint (40,100)
     if (logMorse[x] == "0"):
-        if ((oogway.xcor() + 10) >= 450):
+        if ((oogway.xcor() + 10) >= (windowWidth/2 - 50)):
             oogway.penup()
-            oogway.goto(-450,oogway.ycor() - 6)
+            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
             oogway.pensize(5)
             oogway.forward(10)
         else:
@@ -191,9 +195,9 @@ for x in range(0, lngthMorse):
             oogway.pensize(5)
             oogway.forward(10)
     elif (logMorse[x] == "1"):
-        if ((oogway.xcor() + 20) >= 450):
+        if ((oogway.xcor() + 20) >= (windowWidth/2 - 50)):
             oogway.penup()
-            oogway.goto(-450,oogway.ycor() - 6)
+            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
             oogway.pensize(5)
             oogway.forward(20)
         else:
@@ -201,25 +205,25 @@ for x in range(0, lngthMorse):
             oogway.pensize(5)
             oogway.forward(20)
     elif (logMorse[x] == "2"):
-        if ((oogway.xcor() + rnum2short) >= 450):
+        if ((oogway.xcor() + rnum2short) >= (windowWidth/2 - 50)):
             oogway.penup()
-            oogway.goto(-450,oogway.ycor() - 6)
+            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
         else:
             oogway.pendown()
             oogway.pensize(1)
             oogway.forward(rnum2short)
     elif (logMorse[x] == "3"):
-        if ((oogway.xcor() + rnum3long) >= 450):
+        if ((oogway.xcor() + rnum3long) >= (windowWidth/2 - 50)):
             oogway.penup()
-            oogway.goto(-450,oogway.ycor() - 6)
+            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
         else:
             oogway.pendown()
             oogway.pensize(1)
             oogway.forward(rnum3long)
     elif (logMorse[x] == "4"):
-        if ((oogway.xcor() + rnum4longdark) >= 450):
+        if ((oogway.xcor() + rnum4longdark) >= (windowWidth/2 - 50)):
             oogway.penup()
-            oogway.goto(-450,oogway.ycor() - 6)
+            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
         else:
             oogway.pendown()
             oogway.pensize(5)
@@ -228,3 +232,4 @@ for x in range(0, lngthMorse):
 
 #exitonclick() must be the last command for the screen
 morseCanvas.exitonclick()
+
