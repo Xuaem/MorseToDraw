@@ -1,9 +1,8 @@
 #Importing turtle so python can reference the drawing library
 import turtle
 import random
+
 #Taking the input from user to convert to Morse
-
-
 input1 = input("Input the text to convert to morse: \n\n")
 
 lngth = len(input1)
