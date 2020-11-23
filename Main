@@ -6,8 +6,6 @@ import random
 input1 = input("Input the text to convert to morse: \n\n")
 
 lngth = len(input1)
-l = ""
-
 logMorse = ""
 
 #2s are in place to show where a dot-dash(0-1) starts/ends
