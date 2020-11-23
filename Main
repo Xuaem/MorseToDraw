@@ -3,17 +3,23 @@ import turtle
 import random
 
 #Taking the input from user to convert to Morse
-input1 = input("Input the text to convert to morse: \n\n")
+current_input = input("Input the text to convert to morse: \n\n")
+master_input = ""
 
-lngth = len(input1)
+while current_input != "!!!!!" or current_input == "\n":
+    print("LOOP IS OPEN")
+    master_input = master_input + current_input
+    current_input = input("Input the text to convert to morse: \n\n")
+
+lngth = len(master_input)
 logMorse = ""
 
 #2s are in place to show where a dot-dash(0-1) starts/ends
 #4s are in place to show where the character ends (long dark marks on canvas)
 #3s are in place to show spaces/new lines in text
-print("You wrote: " + input1)
+print("You wrote: " + master_input)
 for x in range(0, lngth):
-    c = input1[x]
+    c = master_input[x]
     c = c.upper()
     if (c == "A"):
         print(".-", end = '')
