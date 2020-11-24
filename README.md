@@ -7,3 +7,5 @@ Converts plaintext to morse code and draws it using Turtle.
 - Updated code to support drawing along the Y-Axis
 - Next fix will be cleaning up code using dictionaries and a second reference file for Main
 
+11/24
+- Reduced the amount of code in Main.py and consolidated it to ConfigCode.py with a dictionary
