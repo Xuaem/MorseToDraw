@@ -1,7 +1,7 @@
 #Importing turtle so python can reference the drawing library
 import turtle
 import random
-import ConfigCode
+import Config
 
 #Taking the input from user to convert to Morse
 current_input = input("Input the text to convert to morse: \n\n")
@@ -30,15 +30,15 @@ print("You wrote: " + xmaster_input + " " + ymaster_input)
 for x in range(0, xlngth):
     c = xmaster_input[x]
     c = c.upper()
-    logMorse = logMorse + ConfigCode.morseNumericalKeyVal[c]
-    print(ConfigCode.morseNumericalKeyVal[c])
+    logMorse = logMorse + Config.morseNumericalKeyVal[c]
+    print(Config.morseNumericalKeyVal[c])
 
 #Y Axis
 for x in range(0, ylngth):
     c = ymaster_input[x]
     c = c.upper()
-    logMorseY = logMorseY + ConfigCode.morseNumericalKeyVal[c]
-    print(ConfigCode.morseNumericalKeyVal[c])
+    logMorseY = logMorseY + Config.morseNumericalKeyVal[c]
+    print(Config.morseNumericalKeyVal[c])
 
 #Next step is to save the new string and convert dot-dashes
 #to an input that turtle can understand i.e (.) being 10 pixels
