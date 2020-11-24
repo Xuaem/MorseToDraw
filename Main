@@ -4,21 +4,32 @@ import random
 
 #Taking the input from user to convert to Morse
 current_input = input("Input the text to convert to morse: \n\n")
-master_input = ""
+xmaster_input = ""
+ymaster_input = ""
 
 while current_input != "!!!!!" or current_input == "\n":
-    master_input = master_input + current_input
+    xmaster_input = xmaster_input + current_input
     current_input = input("Input the text to convert to morse: \n\n")
 
-lngth = len(master_input)
+current_input = input("Would you like to add a y-axis? (Y/N) \n\n")
+current_input = current_input.capitalize()
+if current_input != "N":
+    current_input = input("Input the text to convert to morse: \n\n")
+    while current_input != "!!!!!" or current_input == "\n":
+        ymaster_input = ymaster_input + current_input
+        current_input = input("Input the text to convert to morse: \n\n")
+
+xlngth = len(xmaster_input)
+ylngth = len(ymaster_input)
 logMorse = ""
+logMorseY = ""
 
 #2s are in place to show where a dot-dash(0-1) starts/ends
 #4s are in place to show where the character ends (long dark marks on canvas)
 #3s are in place to show spaces/new lines in text
-print("You wrote: " + master_input)
-for x in range(0, lngth):
-    c = master_input[x]
+print("You wrote: " + xmaster_input + " " + ymaster_input)
+for x in range(0, xlngth):
+    c = xmaster_input[x]
     c = c.upper()
     if (c == "A"):
         print(".-", end = '')
@@ -151,11 +162,146 @@ for x in range(0, lngth):
         print("-----", end = '')
         logMorse = logMorse + "212121212124"
 
+#Y Axis
+for x in range(0, ylngth):
+    c = ymaster_input[x]
+    c = c.upper()
+    if (c == "A"):
+        print(".-", end = '')
+        logMorseY = logMorseY + "202124"
+    elif (c == "B"):
+        print("-...", end = '')
+        logMorseY = logMorseY + "2120202024"
+    elif (c == "C"):
+        print(" -.-.", end = '')
+        logMorseY = logMorseY + "2120212024"
+    elif (c == "D"):
+        print("-..", end = '')
+        logMorseY = logMorseY + "21202024"
+    elif (c == "E"):
+        print(".", end = '')
+        logMorseY = logMorseY + "2024"
+    elif (c == "F"):
+        print("..-.", end = '')
+        logMorseY = logMorseY + "2020212024"
+    elif (c == "G"):
+        print("--.", end = '')
+        logMorseY = logMorseY + "21212024"
+    elif (c == "H"):
+        print("....", end = '')
+        logMorseY = logMorseY + "2020202024"
+    elif (c == "I"):
+        print("..", end = '')
+        logMorseY = logMorseY + "202024"
+    elif (c == "J"):
+        print(".---", end = '')
+        logMorseY = logMorseY + "2021212124"
+    elif (c == "K"):
+        print("-.-", end = '')
+        logMorseY = logMorseY + "21202124"
+    elif (c == "L"):
+        print(".-..", end = '')
+        logMorseY = logMorseY + "2021202024"
+    elif (c == "M"):
+        print("--", end = '')
+        logMorseY = logMorseY + "212124"
+    elif (c == "N"):
+        print("-.", end = '')
+        logMorseY = logMorseY + "212024"
+    elif (c == "O"):
+        print("---", end = '')
+        logMorseY = logMorseY + "21212124"
+    elif (c == "P"):
+        print(".--.", end = '')
+        logMorseY = logMorseY + "2021212024"
+    elif (c == "Q"):
+        print(" --.-", end = '')
+        logMorseY = logMorseY + "2121202124"
+    elif (c == "R"):
+        print(".-.", end = '')
+        logMorseY = logMorseY + "20212024"
+    elif (c == "S"):
+        print("...", end = '')
+        logMorseY = logMorseY + "20202024"
+    elif (c == "T"):
+        print("-", end = '')
+        logMorseY = logMorseY + "2124"
+    elif (c == "U"):
+        print("..-", end = '')
+        logMorseY = logMorseY + "20202124"
+    elif (c == "V"):
+        print("...-", end = '')
+        logMorseY = logMorseY + "2020202124"
+    elif (c == "W"):
+        print(".--", end = '')
+        logMorseY = logMorseY + "20212124"
+    elif (c == "X"):
+        print("-..-", end = '')
+        logMorseY = logMorseY + "2120202124"
+    elif (c == "Y"):
+        print("-.--", end = '')
+        logMorseY = logMorseY + "2120212124"
+    elif (c == "Z"):
+        print("--..", end = '')
+        logMorseY = logMorseY + "2121202024"
+    elif (c == " "):
+        print("", end = ' ')
+        logMorseY = logMorseY + "3"
+    #Skipping exclamation points as they are not available in morse
+    elif (c == "!"):
+        print("", end = '')
+    #ENDSKIP
+    elif (c == "?"):
+        print("..--..", end = '')
+        logMorseY = logMorseY + "20202121202024"
+    elif (c == "@"):
+        print(".--.-.", end = '')
+        logMorseY = logMorseY + "20212120212024"
+    elif (c == "/"):
+        print("-..-.", end = '')
+        logMorseY = logMorseY + "212020212024"
+    elif (c == "."):
+        print(".-.-.-", end = '')
+        logMorseY = logMorseY + "20212021202124"
+    elif (c == ","):
+        print("--..--", end = '')
+        logMorseY = logMorseY + "21212020212124"
+    elif (c == "1"):
+        print(".----", end = '')
+        logMorseY = logMorseY + "202121212124"
+    elif (c == "2"):
+        print("..---", end = '')
+        logMorseY = logMorseY + "202021212124"
+    elif (c == "3"):
+        print("...--", end = '')
+        logMorseY = logMorseY + "202020212124"
+    elif (c == "4"):
+        print("....-", end = '')
+        logMorseY = logMorseY + "202020202124"
+    elif (c == "5"):
+        print(".....", end = '')
+        logMorseY = logMorseY + "202020202024"
+    elif (c == "6"):
+        print("-....", end = '')
+        logMorseY = logMorseY + "212020202024"
+    elif (c == "7"):
+        print("--...", end = '')
+        logMorseY = logMorseY + "212120202024"
+    elif (c == "8"):
+        print("---..", end = '')
+        logMorseY = logMorseY + "212121202024"
+    elif (c == "9"):
+        print("----.", end = '')
+        logMorseY = logMorseY + "212121212024"
+    elif (c == "0"):
+        print("-----", end = '')
+        logMorseY = logMorseY + "212121212124"
+
 #Next step is to save the new string and convert dot-dashes
 #to an input that turtle can understand i.e (.) being 5 pixels
 #or (-) being 10 pixels (logMorse)
 
-print("\n\n" + "DEBUG:: " + logMorse)
+print("\n\n" + "DEBUG:: " + logMorse + "\n" + logMorseY)
 print("\n")
 
 
@@ -168,7 +314,6 @@ oogway = turtle.Turtle()
 morseCanvas.setup(width = .99, height = .99)
 windowHeight = morseCanvas.window_height()
 windowWidth = morseCanvas.window_width()
-print(windowWidth)
 oogway.hideturtle()
 oogway.speed(0)
 oogway.penup()
@@ -176,10 +321,10 @@ oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
 oogway.color("black")
 oogway.pendown()
 
-#Scanning through logMorse to translate 0/1/2/3 into dashes
+#Scanning through logMorse to translate 0/1/2/3 into dashes horizontally
 #and making a new line when the turtle reaches the margin
-lngthMorse = len(logMorse)
-for x in range(0, lngthMorse):
+lngthMorseX = len(logMorse)
+for x in range(0, lngthMorseX):
     rnum2short = random.randint(8,30)
     rnum3long = random.randint(50,225)
     rnum4longdark = random.randint (40,100)
@@ -187,21 +332,21 @@ for x in range(0, lngthMorse):
         if ((oogway.xcor() + 10) >= (windowWidth/2 - 50)):
             oogway.penup()
             oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
-            oogway.pensize(5)
+            oogway.pensize(3)
             oogway.forward(10)
         else:
             oogway.pendown()
-            oogway.pensize(5)
+            oogway.pensize(3)
             oogway.forward(10)
     elif (logMorse[x] == "1"):
         if ((oogway.xcor() + 20) >= (windowWidth/2 - 50)):
             oogway.penup()
             oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
-            oogway.pensize(5)
+            oogway.pensize(3)
             oogway.forward(20)
         else:
             oogway.pendown()
-            oogway.pensize(5)
+            oogway.pensize(3)
             oogway.forward(20)
     elif (logMorse[x] == "2"):
         if ((oogway.xcor() + rnum2short) >= (windowWidth/2 - 50)):
@@ -225,10 +370,74 @@ for x in range(0, lngthMorse):
             oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 6)
         else:
             oogway.pendown()
-            oogway.pensize(5)
+            oogway.pensize(3)
             oogway.forward(rnum4longdark)
-        
+
+#Taking down pens final position on the y-axis so we can reference that for the y-axis drawing
+#Have to use +1-1 here to define ycor as an int for some reason, otherwise ycor returns an object
+finalHorizontal = oogway.ycor() + 1 - 1
+print(finalHorizontal)
+
+#Once done with the x-axis, we want the turtle to return to its start position and work down
+#Setheading(270) sets the turtle facing south 
+oogway.penup()
+oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
+oogway.color("black")
+oogway.pendown()
+oogway.setheading(270)
+
+#Doing the same thing vertically (Y Axis)
+lngthMorseY = len(logMorseY)
+for x in range(0, lngthMorseY):
+    rnum2short = random.randint(8,30)
+    rnum3long = random.randint(50,225)
+    rnum4longdark = random.randint (40,100)
+    if (logMorseY[x] == "0"):
+        if ((oogway.ycor() + 10) <= finalHorizontal):
+            oogway.penup()
+            oogway.goto(oogway.xcor() + 6,((windowHeight/2) - 50))
+            oogway.pensize(3)
+            oogway.forward(10)
+        else:
+            oogway.pendown()
+            oogway.pensize(3)
+            oogway.forward(10)
+    elif (logMorseY[x] == "1"):
+        if ((oogway.ycor() + 20) <= finalHorizontal):
+            oogway.penup()
+            oogway.goto(oogway.xcor() + 6,((windowHeight/2) - 50))
+            oogway.pensize(3)
+            oogway.forward(20)
+        else:
+            oogway.pendown()
+            oogway.pensize(3)
+            oogway.forward(20)
+    elif (logMorseY[x] == "2"):
+        if ((oogway.ycor() + rnum2short) <= finalHorizontal):
+            oogway.penup()
+            oogway.goto(oogway.xcor() + 6,((windowHeight/2) - 50))
+        else:
+            oogway.pendown()
+            oogway.pensize(1)
+            oogway.forward(rnum2short)
+    elif (logMorseY[x] == "3"):
+        if ((oogway.ycor() + rnum3long) <= finalHorizontal):
+            oogway.penup()
+            oogway.goto(oogway.xcor() + 6,((windowHeight/2) - 50))
+        else:
+            oogway.pendown()
+            oogway.pensize(1)
+            oogway.forward(rnum3long)
+    elif (logMorseY[x] == "4"):
+        if ((oogway.ycor() + rnum4longdark) <= finalHorizontal):
+            oogway.penup()
+            oogway.goto(oogway.xcor() + 6,((windowHeight/2) - 50))
+        else:
+            oogway.pendown()
+            oogway.pensize(3)
+            oogway.forward(rnum4longdark)
 
 #exitonclick() must be the last command for the screen
 morseCanvas.exitonclick()
+
 
