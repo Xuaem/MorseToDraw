@@ -5,4 +5,5 @@
 - Next fix will be cleaning up code using dictionaries and a second reference file for Main
 
 11/24
-- Reduced the amount of code in Main.py and consolidated it to ConfigCode.py with a dictionary
+- Reduced the amount of code in main.py and consolidated it to config.py with a dictionary
+- Created changelog.md 
