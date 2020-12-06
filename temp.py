@@ -9,6 +9,13 @@ def morse_encode(input_string):
 
 
 
+for x in range(0, len(xmaster_input)):
+	c = xmaster_input[x].upper()
+	drawer.draw(config.morseNumericalKeyVal[c])
+
+
+
+
 class Person:
   def __init__(self, name, age):
     self.name = name

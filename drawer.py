@@ -25,3 +25,21 @@ class Drawer:
 			pen.pendown()
 			pen.pensize(3)
 			pen.forward(10)
+
+	def draw(c):
+		drawSmallSpace()
+		if c == " ":
+			drawSpace()
+
+	def drawDot():
+
+	def drawDash():
+
+	def drawSpace():
+
+"ry w"
+
+".-.&-.-- .--"
+
+
+
