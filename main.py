@@ -1,7 +1,7 @@
 #Importing turtle so python can reference the drawing library
-import turtle
 import random
 import Config
+import Drawer
 
 #Taking the input from user to convert to Morse
 current_input = input("Input the text to convert to morse: \n\n")
@@ -44,23 +44,13 @@ for x in range(0, ylngth):
 #to an input that turtle can understand i.e (.) being 10 pixels
 #or (-) being 20 pixels (logMorse)
 
-print("\n\n" + "DEBUG:: " + logMorse + "\n" + logMorseY)
+print("\n\n" + "DEBUG X-Axis:: " + logMorse + "\nY-Axis::" + logMorseY)
 print("\n")
 
 
 #Starting a turtle window that exits on click only*********
 #vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-morseCanvas = turtle.Screen()
-oogway = turtle.Turtle()
-morseCanvas.setup(width = .99, height = .99)
-windowHeight = morseCanvas.window_height()
-windowWidth = morseCanvas.window_width()
-oogway.hideturtle()
-oogway.speed(0)
-oogway.penup()
-oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
-oogway.color("black")
-oogway.pendown()
+drawer = Drawer.Drawer()
 
 #Scanning through logMorse to translate 0/1/2/3 into dashes horizontally
 #and making a new line when the turtle reaches the margin
@@ -70,67 +60,23 @@ for x in range(0, lngthMorseX):
     rnum3long = random.randint(50,225)
     rnum4longdark = random.randint (40,100)
     if (logMorse[x] == "0"):
-        if ((oogway.xcor() + 10) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(10)
-        else:
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(10)
+        drawer.drawSegmentXAxis(10, 3)
     elif (logMorse[x] == "1"):
-        if ((oogway.xcor() + 20) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(20)
-        else:
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(20)
+        drawer.drawSegmentXAxis(20, 3)
     elif (logMorse[x] == "2"):
-        if ((oogway.xcor() + rnum2short) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-        else:
-            oogway.pendown()
-            oogway.pensize(1)
-            oogway.forward(rnum2short)
+        drawer.drawSegmentXAxis(rnum2short, 1)
     elif (logMorse[x] == "3"):
-        if ((oogway.xcor() + rnum3long) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-        else:
-            oogway.pendown()
-            oogway.pensize(1)
-            oogway.forward(rnum3long)
+        drawer.drawSegmentXAxis(rnum3long, 1)
     elif (logMorse[x] == "4"):
-        if ((oogway.xcor() + rnum4longdark) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-        else:
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(rnum4longdark)
+        drawer.drawSegmentXAxis(rnum4longdark, 3)
 
 #Taking down pens final position on the y-axis so we can reference that for the y-axis drawing
 #Have to use +1-1 here to define ycor as an int for some reason, otherwise ycor returns an object
-finalHorizontal = oogway.ycor() + 1 - 1
+finalHorizontal = drawer.get_ycor
 print(finalHorizontal)
 
 #Once done with the x-axis, we want the turtle to return to its start position and work down
-#Setheading(270) sets the turtle facing south 
-oogway.penup()
-oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
-oogway.color("black")
-oogway.pendown()
-oogway.setheading(270)
+drawer.vertical_reset
 
 #Doing the same thing vertically (Y Axis)
 lngthMorseY = len(logMorseY)
@@ -187,7 +133,4 @@ for x in range(0, lngthMorseY):
             oogway.pendown()
             oogway.pensize(3)
             oogway.forward(rnum4longdark)
-
-#exitonclick() must be the last command for the screen
-morseCanvas.exitonclick()
 
