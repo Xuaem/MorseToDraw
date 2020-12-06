@@ -1,5 +1,5 @@
 #Importing turtle so python can reference the drawing library
-import turtle
+import drawer
 import random
 import Config
 
@@ -27,18 +27,8 @@ logMorseY = ""
 
 #X Axis
 print("You wrote: " + xmaster_input + " " + ymaster_input)
-for x in range(0, xlngth):
-    c = xmaster_input[x]
-    c = c.upper()
-    logMorse = logMorse + Config.morseNumericalKeyVal[c]
-    print(Config.morseNumericalKeyVal[c])
-
-#Y Axis
-for x in range(0, ylngth):
-    c = ymaster_input[x]
-    c = c.upper()
-    logMorseY = logMorseY + Config.morseNumericalKeyVal[c]
-    print(Config.morseNumericalKeyVal[c])
+logMorse = morse_encode(xmaster_input)
+logMorseY = morse_encode(ymaster_input)
 
 #Next step is to save the new string and convert dot-dashes
 #to an input that turtle can understand i.e (.) being 10 pixels
@@ -50,17 +40,7 @@ print("\n")
 
 #Starting a turtle window that exits on click only*********
 #vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-morseCanvas = turtle.Screen()
-oogway = turtle.Turtle()
-morseCanvas.setup(width = .99, height = .99)
-windowHeight = morseCanvas.window_height()
-windowWidth = morseCanvas.window_width()
-oogway.hideturtle()
-oogway.speed(0)
-oogway.penup()
-oogway.goto(((windowWidth/2) - (windowWidth) + 50),((windowHeight/2) - 50))
-oogway.color("black")
-oogway.pendown()
+drawer = drawer.Drawer()
 
 #Scanning through logMorse to translate 0/1/2/3 into dashes horizontally
 #and making a new line when the turtle reaches the margin
@@ -70,16 +50,7 @@ for x in range(0, lngthMorseX):
     rnum3long = random.randint(50,225)
     rnum4longdark = random.randint (40,100)
     if (logMorse[x] == "0"):
-        if ((oogway.xcor() + 10) >= (windowWidth/2 - 50)):
-            oogway.penup()
-            oogway.goto(((windowWidth/2) - (windowWidth) + 50),oogway.ycor() - 8)
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(10)
-        else:
-            oogway.pendown()
-            oogway.pensize(3)
-            oogway.forward(10)
+        drawer.drawDot()
     elif (logMorse[x] == "1"):
         if ((oogway.xcor() + 20) >= (windowWidth/2 - 50)):
             oogway.penup()
